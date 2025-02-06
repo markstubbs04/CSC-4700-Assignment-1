@@ -19,7 +19,6 @@ class NGram:
         uni_dict = {word: {} for word in word_list}
         bi_dict = {}
         
-        print(len(md))
         
 
         if self.num==1:
@@ -158,6 +157,7 @@ class BPE:
         C = list(data)
         #C = [item.replace(" ", "</w>") for item in C]
         vocab = set(C)
+        vocab = list(vocab)
         k = 500
         if args:
             k = args[0]
@@ -178,9 +178,7 @@ class BPE:
                     dict_freq[word] += 1
                 i+=1
             highest_freq = max(dict_freq, key=dict_freq.get)
-            #print("." +highest_freq+".")
-            print(index)
-            vocab.add(highest_freq)
+            vocab.append(highest_freq)
             
             length = len(highest_freq)
             i = 0
@@ -398,6 +396,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
-
-    
